@@ -1,0 +1,18 @@
+ena
+conf t
+hostname Router2911
+banner motd #SOLO PARA CRACKS#
+INT G0/0
+ip add 192.168.1.1 255.255.255.0
+no sh
+line console 0
+pass cisco123
+login
+line vty 0 4
+pass cisco123
+login
+exit
+ena secret cisco123
+service pass
+do wr
+exit
