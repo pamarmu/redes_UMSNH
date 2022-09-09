@@ -1,0 +1,49 @@
+--Para conf t, primero enable--
+
+
+
+● Nombre de Dispositivo
+    Router(config)# hostname R
+● Banner
+    R(config)# banner motd @ Mensaje @
+● Deshabilitar búsqueda DNS
+    R(config)# no ip domain-lookup
+● Contraseñas y su encriptación
+    R(config)# enable password cisco123
+    R(config)# service password-encryption
+                vs
+    R(config)# enable secret cisco123
+● Configuración de Líneas
+    R(config)#line {console 0 | vty 0-4}
+    ○ Contraseñas de Login
+        ■ R(config-line)# password cisco123
+        ■ R(config-line)# login
+    ○ Tiempo de Inactividad
+        ■ R(config-line)# exec-timeout 5 30
+    ○ Sincronía de mensajes de logs
+        ■ R(config-line)# logging synchronous
+● Configuración de Interfaces
+    R(config)# interface FastEthernet {0/0| 0/1}
+    R(config)# interface Serial {0/0/1 | 0/0/1}
+    S(config)# interface vlan 1
+● Descripción de Interfaces
+    R(config-int)# description LAN Fulana
+● Asignación de IPs a interfaces.
+    R(config-int)# ip address 192.168.1.1 255.255.255.0
+● Gateway en Switches
+    S(config)# ip default-gateway 192.168.1.1
+● Guardar configuración en NVRAM
+    R# copy running-config startup-config
+
+    
+
+CONTRASEÑAS
+    
+    Router2911(config)# enable secret <<R0ut3r_S3cr3t>>
+    Router2911(config-line)# password <<R0ut3r_L1n3>>
+
+    SwitchDerecha(config)# enable secret <<Sw1tch_S3cr3t>>
+    SwitchDerecha(config-line)# password <<Sw1tch_L1n3>>
+
+
+

@@ -1,0 +1,84 @@
+hostname Router2911
+!
+!
+!
+enable secret 5 $1$mERr$L7cHsCpLjz47SHj4hWyH30
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2911/K9 sn FTX1524R4LO-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ description LAN Izquierda
+ ip address 192.168.1.126 255.255.255.128
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ description LAN Derecha
+ ip address 192.168.1.154 255.255.255.128
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+banner motd ^CAcceso solo a personal autorizado, y que le guste el reggueton, amen^C
+!
+!
+!
+!
+line con 0
+ exec-timeout 5 30
+ password R0ut3r_L1n3
+ logging synchronous
+ login
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
